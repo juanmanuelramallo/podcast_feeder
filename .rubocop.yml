@@ -3,6 +3,8 @@ AllCops:
   Exclude:
     - bin/bundle
     - node_modules/**/*
+    - config/initializers/simple_form.rb
+    - config/initializers/simple_form_bootstrap.rb
 
 Style/Documentation:
   Enabled: false
