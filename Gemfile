@@ -17,11 +17,14 @@ gem 'webpacker', '~> 4.0'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '~> 2.7.5'
+  gem 'factory_bot_rails', '~> 6.0.0'
+  gem 'faker', '~> 2.12.0'
   gem 'rspec-rails', '~> 4.0.1'
 end
 
 group :development do
   gem 'annotate', '~> 3.1.1'
+  gem 'heavens_door', '~> 0.3.0'
   gem 'listen', '~> 3.2'
   gem 'rubocop', '~> 0.85.1', require: false
   gem 'spring'
@@ -30,6 +33,9 @@ group :development do
 end
 
 group :test do
+  gem 'capybara', '~> 3.33.0'
+  gem 'selenium-webdriver', '~> 3.0'
+  gem 'webdrivers', '~> 3.9', '>= 3.9.4'
   gem 'shoulda-matchers', '~> 4.3.0'
 end
 

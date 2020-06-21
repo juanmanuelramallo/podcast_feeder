@@ -1,0 +1,52 @@
+<p>
+  <strong>Title:</strong>
+  <%= @podcast.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @podcast.description %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @podcast.language %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @podcast.author %>
+</p>
+
+<p>
+  <strong>Explicit:</strong>
+  <%= @podcast.explicit %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @podcast.category %>
+</p>
+
+<p>
+  <strong>Complete:</strong>
+  <%= @podcast.complete %>
+</p>
+
+<p>
+  <strong>Channel Type:</strong>
+  <%= @podcast.channel_type %>
+</p>
+
+<p>
+  <strong>Limit:</strong>
+  <%= @podcast.limit %>
+</p>
+
+<p>
+  <strong>Target countries:</strong>
+  <%= @podcast.target_countries.join(', ') %>
+</p>
+
+<%= link_to 'Edit', edit_podcast_path(@podcast) %> |
+<%= link_to 'Back', podcasts_path %>

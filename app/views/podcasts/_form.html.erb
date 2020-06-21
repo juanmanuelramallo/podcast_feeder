@@ -1,0 +1,21 @@
+<%= simple_form_for(@podcast) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :language %>
+    <%= f.input :author %>
+    <%= f.input :explicit %>
+    <%= f.input :category %>
+    <%= f.input :complete %>
+    <%= f.input :channel_type, collection: Podcast.channel_types.keys %>
+    <%= f.input :limit %>
+    <%= f.input :target_countries %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>
