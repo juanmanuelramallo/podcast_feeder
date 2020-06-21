@@ -21,6 +21,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate', '~> 3.1.1'
   gem 'listen', '~> 3.2'
   gem 'rubocop', '~> 0.85.1', require: false
   gem 'spring'
