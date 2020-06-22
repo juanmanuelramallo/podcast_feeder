@@ -26,6 +26,7 @@ group :development do
   gem 'annotate', '~> 3.1.1'
   gem 'heavens_door', '~> 0.3.0'
   gem 'listen', '~> 3.2'
+  gem 'pry-rails'
   gem 'rubocop', '~> 0.85.1', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
