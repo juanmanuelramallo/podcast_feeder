@@ -1,6 +1,7 @@
 AllCops:
   NewCops: disable
   Exclude:
+    - vendor/**/*
     - bin/bundle
     - node_modules/**/*
     - config/initializers/simple_form.rb
