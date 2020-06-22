@@ -36,7 +36,16 @@ jobs:
         chmod +x ./cc-test-reporter
         ./cc-test-reporter before-build
       env:
-        CC_TEST_REPORTER_ID: aff2c7b9e07e54d5fc9e5588d2e2a8bab4f69950d35000edc2b6250bbaba477d
+        CC_TEST_REPORTER_ID:
+
+    - name: Cache gems
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-gems
+      with:
+        path: vendor/bundle
+        key: ${{ env.cache-name }}-${{ hashFiles('Gemfile.lock') }}
+        restore-keys: ${{ env.cache-name }}-
 
     - name: Build App
       env:
@@ -45,7 +54,7 @@ jobs:
         RAILS_ENV: test
       run: |
         gem install bundler
-        bundle install --jobs 4 --retry 3
+        bundle install --jobs 4 --retry 3 --path vendor/bundle
         bin/rails db:setup
 
     - name: Rubocop
