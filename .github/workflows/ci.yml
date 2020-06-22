@@ -13,6 +13,15 @@ jobs:
     if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     runs-on: ubuntu-latest
 
+    env:
+      PGHOST: localhost
+      PGUSER: postgres
+      RAILS_ENV: test
+      AWS_ACCESS_KEY_ID:
+      AWS_SECRET_ACCESS_KEY:
+      AWS_REGION:
+      AWS_BUCKET:
+
     services:
       postgres:
         image: postgres:11.5
@@ -49,11 +58,6 @@ jobs:
           ${{ runner.os }}-gems-
 
     - name: Build App
-      env:
-        PGHOST: localhost
-        PGUSER: postgres
-        PGPORT: ${{ job.services.postgres.ports[5432] }}
-        RAILS_ENV: test
       run: |
         bundle config path vendor/bundle
         gem install bundler
@@ -65,9 +69,4 @@ jobs:
       run: bundle exec rubocop
 
     - name: Tests
-      env:
-        PGHOST: localhost
-        PGUSER: postgres
-        PGPORT: ${{ job.services.postgres.ports[5432] }}
-        RAILS_ENV: test
       run: bundle exec rspec
