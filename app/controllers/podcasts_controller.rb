@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PodcastsController < ApplicationController
-  before_action :set_podcast, only: [:show, :edit, :update, :destroy]
+  before_action :set_podcast, only: %i[show edit update destroy]
 
   # GET /podcasts
   def index
@@ -7,8 +9,7 @@ class PodcastsController < ApplicationController
   end
 
   # GET /podcasts/1
-  def show
-  end
+  def show; end
 
   # GET /podcasts/new
   def new
@@ -16,8 +17,7 @@ class PodcastsController < ApplicationController
   end
 
   # GET /podcasts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /podcasts
   def create

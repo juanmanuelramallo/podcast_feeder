@@ -5,6 +5,13 @@ AllCops:
     - node_modules/**/*
     - config/initializers/simple_form.rb
     - config/initializers/simple_form_bootstrap.rb
+    - lib/tasks/auto_annotate_models.rake
+    - db/schema.rb
 
 Style/Documentation:
   Enabled: false
+
+Metrics/MethodLength:
+  Exclude:
+    - app/controllers/podcasts_controller.rb
+    - db/migrate/20200621193426_create_podcasts.rb

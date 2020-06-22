@@ -35,8 +35,8 @@ end
 group :test do
   gem 'capybara', '~> 3.33.0'
   gem 'selenium-webdriver', '~> 3.0'
-  gem 'webdrivers', '~> 3.9', '>= 3.9.4'
   gem 'shoulda-matchers', '~> 4.3.0'
+  gem 'webdrivers', '~> 3.9', '>= 3.9.4'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
