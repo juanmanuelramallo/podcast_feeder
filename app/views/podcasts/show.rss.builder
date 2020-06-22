@@ -13,6 +13,7 @@ xml.rss('version' => '2.0',
     xml.language @podcast.language
 
     xml.itunes :author, @podcast.author
+    xml.itunes :image, polymorphic_url(@podcast.image) if @podcast.image.attached?
     xml.itunes :explicit, @podcast.explicit
     xml.itunes :category, text: @podcast.category
     xml.itunes :complete, @podcast.complete

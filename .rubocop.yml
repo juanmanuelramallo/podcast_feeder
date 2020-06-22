@@ -8,6 +8,7 @@ AllCops:
     - config/initializers/simple_form_bootstrap.rb
     - lib/tasks/auto_annotate_models.rake
     - db/schema.rb
+    - db/migrate/20200622040011_create_active_storage_tables.active_storage.rb
 
 Style/Documentation:
   Enabled: false
@@ -16,3 +17,7 @@ Metrics/MethodLength:
   Exclude:
     - app/controllers/podcasts_controller.rb
     - db/migrate/20200621193426_create_podcasts.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*

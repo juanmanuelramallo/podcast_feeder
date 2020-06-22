@@ -9,6 +9,15 @@
 </p>
 
 <p>
+  <strong>Image:</strong>
+</p>
+<% if @podcast.image.attached? %>
+  <%= image_tag @podcast.image, class: 'img-thumbnail w-25 mb-3' %>
+<% else %>
+  <p class="badge badge-light">No image attached</p>
+<% end %>
+
+<p>
   <strong>Language:</strong>
   <%= @podcast.language %>
 </p>

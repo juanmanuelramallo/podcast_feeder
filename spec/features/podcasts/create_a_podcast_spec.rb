@@ -10,6 +10,7 @@ RSpec.feature 'Create a podcast' do
 
     fill_in 'Title', with: 'Talking Roots'
     fill_in 'Description', with: 'Test'
+    attach_file 'Image', 'spec/fixtures/image.jpg'
     fill_in 'Language', with: 'es'
     fill_in 'Author', with: 'Rootstrap'
     fill_in 'Category', with: 'Technology'

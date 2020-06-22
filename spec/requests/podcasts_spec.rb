@@ -6,6 +6,8 @@ RSpec.describe 'Podcasts' do
   describe 'xml' do
     it 'renders an xml' do
       podcast = create(:podcast)
+      image = Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/image.jpg'), 'image/jpg')
+      podcast.image.attach(image)
       presenter = PodcastPresenter.new(podcast)
 
       get podcast_path(podcast, format: :rss)
@@ -20,6 +22,7 @@ RSpec.describe 'Podcasts' do
             <description>#{podcast.description}</description>
             <language>#{podcast.language}</language>
             <itunes:author>#{podcast.author}</itunes:author>
+            <itunes:image>#{polymorphic_url(podcast.image)}</itunes:image>
             <itunes:explicit>#{presenter.explicit}</itunes:explicit>
             <itunes:category text="#{podcast.category}"/>
             <itunes:complete>#{presenter.complete}</itunes:complete>

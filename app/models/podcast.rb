@@ -26,4 +26,6 @@ class Podcast < ApplicationRecord
     episodic: 0,
     serial: 1
   }
+
+  has_one_attached :image
 end

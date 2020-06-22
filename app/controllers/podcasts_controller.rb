@@ -64,7 +64,8 @@ class PodcastsController < ApplicationController
       :complete,
       :channel_type,
       :limit,
-      :target_countries
+      :target_countries,
+      :image
     )
   end
 
