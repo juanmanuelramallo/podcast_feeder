@@ -1,5 +1,7 @@
 # Podcast Feeder
 
+[![CI](https://github.com/juanmanuelramallo/podcast_feeder/workflows/CI/badge.svg)](https://github.com/juanmanuelramallo/podcast_feeder/actions?query=workflow%3ACI)
+
 A CMS for Podcast episodes that renders an RSS feed.
 
 # Modeling
