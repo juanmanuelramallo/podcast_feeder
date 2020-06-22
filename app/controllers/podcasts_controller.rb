@@ -48,7 +48,9 @@ class PodcastsController < ApplicationController
   private
 
   def set_podcast
-    @podcast = Podcast.find(params[:id])
+    @podcast = PodcastPresenter.new(
+      Podcast.find(params[:id])
+    )
   end
 
   def podcast_params
