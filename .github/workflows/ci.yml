@@ -38,14 +38,12 @@ jobs:
       env:
         CC_TEST_REPORTER_ID:
 
-    - name: Cache gems
-      uses: actions/cache@v2
-      env:
-        cache-name: cache-gems
+    - uses: actions/cache@v2
       with:
         path: vendor/bundle
-        key: ${{ env.cache-name }}-${{ hashFiles('Gemfile.lock') }}
-        restore-keys: ${{ env.cache-name }}-
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
 
     - name: Build App
       env:
