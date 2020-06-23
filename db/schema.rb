@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_040011) do
+ActiveRecord::Schema.define(version: 2020_06_23_002016) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -36,6 +37,19 @@ ActiveRecord::Schema.define(version: 2020_06_22_040011) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "episodes", force: :cascade do |t|
+    t.uuid "guid", default: -> { "gen_random_uuid()" }, null: false
+    t.datetime "pub_date", null: false
+    t.string "title", default: "", null: false
+    t.string "description", default: "", null: false
+    t.boolean "explicit", default: false, null: false
+    t.string "keywords", default: "", null: false
+    t.bigint "podcast_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["podcast_id"], name: "index_episodes_on_podcast_id"
+  end
+
   create_table "podcasts", force: :cascade do |t|
     t.string "title", null: false
     t.string "description", null: false
@@ -52,4 +66,5 @@ ActiveRecord::Schema.define(version: 2020_06_22_040011) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "episodes", "podcasts"
 end

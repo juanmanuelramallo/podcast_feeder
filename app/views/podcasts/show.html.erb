@@ -1,61 +1,72 @@
-<p>
-  <strong>Title:</strong>
-  <%= @podcast.title %>
-</p>
+<h1><%= @podcast.title %></h1>
 
-<p>
-  <strong>Description:</strong>
-  <%= @podcast.description %>
-</p>
+<div class="row">
+  <div class="col-lg-4 col-sm-12">
+    <p>
+      <strong>Description:</strong>
+      <%= @podcast.description %>
+    </p>
 
-<p>
-  <strong>Image:</strong>
-</p>
-<% if @podcast.image.attached? %>
-  <%= image_tag @podcast.image, class: 'img-thumbnail w-25 mb-3' %>
-<% else %>
-  <p class="badge badge-light">No image attached</p>
-<% end %>
+    <p>
+      <strong>Image:</strong>
+    </p>
+    <% if @podcast.image.attached? %>
+      <%= image_tag @podcast.image, class: 'img-thumbnail w-100 mb-3' %>
+    <% else %>
+      <p class="badge badge-light">No image attached</p>
+    <% end %>
 
-<p>
-  <strong>Language:</strong>
-  <%= @podcast.language %>
-</p>
+    <p>
+      <strong>Language:</strong>
+      <%= @podcast.language %>
+    </p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @podcast.author %>
-</p>
+    <p>
+      <strong>Author:</strong>
+      <%= @podcast.author %>
+    </p>
 
-<p>
-  <strong>Explicit:</strong>
-  <%= @podcast.explicit %>
-</p>
+    <p>
+      <strong>Explicit:</strong>
+      <%= @podcast.explicit %>
+    </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @podcast.category %>
-</p>
+    <p>
+      <strong>Category:</strong>
+      <%= @podcast.category %>
+    </p>
 
-<p>
-  <strong>Complete:</strong>
-  <%= @podcast.complete %>
-</p>
+    <p>
+      <strong>Complete:</strong>
+      <%= @podcast.complete %>
+    </p>
 
-<p>
-  <strong>Channel Type:</strong>
-  <%= @podcast.channel_type %>
-</p>
+    <p>
+      <strong>Channel Type:</strong>
+      <%= @podcast.channel_type %>
+    </p>
 
-<p>
-  <strong>Limit:</strong>
-  <%= @podcast.limit %>
-</p>
+    <p>
+      <strong>Limit:</strong>
+      <%= @podcast.limit %>
+    </p>
 
-<p>
-  <strong>Target countries:</strong>
-  <%= @podcast.target_countries.join(', ') %>
-</p>
+    <p>
+      <strong>Target countries:</strong>
+      <%= @podcast.target_countries.join(', ') %>
+    </p>
 
-<%= link_to 'Edit', edit_podcast_path(@podcast) %> |
-<%= link_to 'Back', podcasts_path %>
+    <%= link_to 'Edit podcast', edit_podcast_path(@podcast), class: 'btn btn-primary' %>
+    <%= link_to 'Back', podcasts_path, class: 'btn btn-light' %>
+  </div>
+
+  <div class="col-lg-8 col-sm-12">
+    <p><%= link_to 'Create episode', new_podcast_episode_path(@podcast), class: 'btn btn-primary' %></p>
+
+    <% if @episodes.any? %>
+      <%= render @episodes %>
+    <% else %>
+      <div class="alert alert-warning">Podcast does not have any episode</div>
+    <% end %>
+  </div>
+</div>

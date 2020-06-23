@@ -28,4 +28,8 @@ class Podcast < ApplicationRecord
   }
 
   has_one_attached :image
+
+  # TODO: Add validation for file types in image attachment
+
+  has_many :episodes
 end

@@ -68,5 +68,8 @@ jobs:
     - name: Rubocop
       run: bundle exec rubocop
 
+    - name: I18n Health
+      run: bundle exec i18n-tasks health
+
     - name: Tests
       run: bundle exec rspec

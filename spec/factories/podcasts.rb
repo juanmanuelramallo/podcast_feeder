@@ -12,5 +12,11 @@ FactoryBot.define do
     limit { [nil, -> { rand(0..10) }].sample&.call }
     target_countries { [['uy'], %w[ar uy], %w[ar bo uy]].sample }
     title { Faker::Book.title }
+
+    after(:create) do |podcast|
+      image = Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/image.jpg'), 'image/jpg')
+
+      podcast.image.attach(image)
+    end
   end
 end

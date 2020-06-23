@@ -17,7 +17,7 @@ It includes support for iTunes' standard.
 1. language: string (https://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes)
 1. itunes:
    1. author: string
-   1. image: URL
+   1. image: Active Storage
    1. explicit: boolean (yes|clean)
    1. category: string
    1. complete: boolean (yes|no)
@@ -27,6 +27,18 @@ It includes support for iTunes' standard.
    1. countryoforigin: array of string (ISO3166[])
 
 <sub>
-\* optional <br>
+* optional <br>
 ** not in database
 </sub>
+
+
+### Episodes
+
+1. guid: string
+1. enclosure: Active Storage
+1. pub_date: DateTime
+1. title: string
+1. description: string
+1. explicit: boolean
+1. image: Active Storage
+1. keywords: string
