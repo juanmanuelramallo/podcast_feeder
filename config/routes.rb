@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   resources :podcasts do
-    resources :episodes
+    resources :episodes, except: [:index]
   end
 
   root 'podcasts#index'

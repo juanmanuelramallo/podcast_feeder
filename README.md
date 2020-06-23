@@ -1,6 +1,8 @@
 # Podcast Feeder
 
 [![CI](https://github.com/juanmanuelramallo/podcast_feeder/workflows/CI/badge.svg)](https://github.com/juanmanuelramallo/podcast_feeder/actions?query=workflow%3ACI)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d2bfe7160d35a46dcbed/maintainability)](https://codeclimate.com/github/juanmanuelramallo/podcast_feeder/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d2bfe7160d35a46dcbed/test_coverage)](https://codeclimate.com/github/juanmanuelramallo/podcast_feeder/test_coverage)
 
 A CMS for Podcast episodes that renders an RSS feed.
 
