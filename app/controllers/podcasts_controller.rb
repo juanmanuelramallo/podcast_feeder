@@ -9,7 +9,11 @@ class PodcastsController < ApplicationController
   end
 
   # GET /podcasts/1
-  def show; end
+  def show
+    @episodes = EpisodePresenter.all(
+      @podcast.episodes.order(pub_date: :desc)
+    )
+  end
 
   # GET /podcasts/new
   def new

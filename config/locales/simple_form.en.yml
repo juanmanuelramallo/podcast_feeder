@@ -1,24 +1,31 @@
+---
 en:
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
-    required:
-      text: 'required'
-      mark: '*'
     error_notification:
-      default_message: "Please review the problems below:"
+      default_message: 'Please review the problems below:'
     hints:
-      # https://podcasters.spotify.com/terms/Spotify_Podcast_Delivery_Specification_v1.6.pdf
+      episode:
+        audio_file: Specifies the location to download the episode content from and what content type that is used to create the content. Alternatively the default RSS element <enclosure> may be used but never both at the same time. At least one of the alternatives must always be defined.
+        description: Phrase or short example of the episode to give the consumer a quick understanding of its content. Alternatively the analog <media:description> element may be used instead but never both at the same time. One of the alternatives must always be specified.
+        explicit: Indicates if the podcast episode contains explicit material. Allowed values are yes, no or clean yes indicates that the episode contains content not suitable to minors. no means the episode is suitable to minors and have not been edited from its original. clean means the episode has been edited to become suitable to minors.
+        image: Indicates the episode artwork. Should be a 1:1 dimensioned image in high resolution representing the particular episode. When omitted on the item level the the channel level will be used instead.
+        keywords: Indicates the episode keywords. Keywords used for searching purposes. Plain text, no HTML, words must be separated by comma (,).
+        pub_date: Indicates the age of the episode when the episode was first published in any outlet (also outside of Spotify) using an IETF RFC 2822 format. This value is used to order episodes when no other explicit order is specified.
+        title: The title of the specific podcast episode. Alternatively the analog "title" element may be used instead but never both at the same time. One of the alternatives must always be specified.
       podcast:
-        title: The name by which the podcast is known
-        description: Phrase or short description of the podcast intending to give the consumer a quick understanding of what the podcast is about
-        language: Indicates the primary show language using RSS 2.0 or W3C RFC 1766 language codes
         author: The full name of the show main originator, group or person
-        image: Indicates the podcast artwork. This image will be used as a fallback for any podcast episode not defining its own artwork
-        explicit: Indicates if the podcast contains explicit material in any of its episodes. Allowed values are yes or clean. Clean indicates the podcast in its entirety is suitable to minors with or without edited material. Yes indicates that parental guidance is recommended to parts of the content.
-        category: "Used to group the podcast into specific sets. May be nested with subcategories like: 1. Arts → 1.1 Design, 1.2 Fashion & Beauty, 1.3, Food 1.4 Literature etc. While not mandatory for the podcast ingest the categorization is needed for Spotify to perform recommendations."
-        complete: YES | NO A yes indicates a podcast that has ended and no further episodes will be published.
+        category: 'Used to group the podcast into specific sets. May be nested with subcategories like: 1. Arts → 1.1 Design, 1.2 Fashion & Beauty, 1.3, Food 1.4 Literature etc. While not mandatory for the podcast ingest the categorization is needed for Spotify to perform recommendations.'
         channel_type: "'episodic' for non-chronological episodes that will behave as they have for years and download the latest episode, or 'serial' for chronological episodes that should be consumed oldest to newest."
+        complete: YES | NO A yes indicates a podcast that has ended and no further episodes will be published.
+        description: Phrase or short description of the podcast intending to give the consumer a quick understanding of what the podcast is about
+        explicit: Indicates if the podcast contains explicit material in any of its episodes. Allowed values are yes or clean. Clean indicates the podcast in its entirety is suitable to minors with or without edited material. Yes indicates that parental guidance is recommended to parts of the content.
+        image: Indicates the podcast artwork. This image will be used as a fallback for any podcast episode not defining its own artwork.
+        language: Indicates the primary show language using RSS 2.0 or W3C RFC 1766 language codes
         limit: If specified at most this number of episodes appear in the client, using the most recent episodes.
         target_countries: Defines the intended market/territory where the podcast is relevant to the consumer. This is defined as a space separated list of ISO 3166 country codes ranked in order of priority from most relevant to least relevant. Podcasts with a narrow list of countries will have a higher potential reaching their it’s target audiences compared to podcasts with wide definitions. Podcasts omitting this element entirely will be defined as ’global’ and not having a target market/territory.
-        image: Indicates the podcast artwork. This image will be used as a fallback for any podcast episode not defining its own artwork.
+        title: The name by which the podcast is known
+    'no': 'No'
+    required:
+      mark: "*"
+      text: required
+    'yes': 'Yes'

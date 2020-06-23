@@ -16,8 +16,9 @@ Style/Documentation:
 Metrics/MethodLength:
   Exclude:
     - app/controllers/podcasts_controller.rb
-    - db/migrate/20200621193426_create_podcasts.rb
+    - db/migrate/**/*
 
 Metrics/BlockLength:
   Exclude:
     - spec/**/*
+    - app/views/podcasts/show.rss.builder

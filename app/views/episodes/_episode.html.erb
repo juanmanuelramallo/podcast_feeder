@@ -1,0 +1,51 @@
+<div class="card mb-3" id="episode-<%= episode.id %>">
+  <% if episode.image.attached? %>
+    <%= image_tag episode.image, class: 'card-img-top' %>
+  <% else %>
+    <p class="badge badge-light">No image attached</p>
+  <% end %>
+
+  <div class="card-body">
+    <p>
+      <strong>Title:</strong>
+      <%= episode.title %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= episode.description %>
+    </p>
+
+    <p>
+      <strong>Audio:</strong>
+    </p>
+    <% if episode.audio_file.attached? %>
+      <p><%= link_to polymorphic_url(episode.audio_file), polymorphic_url(episode.audio_file), { target: :_blank } %></p>
+    <% else %>
+      <p class="badge badge-light">No audio file attached</p>
+    <% end %>
+
+    <p>
+      <strong>Guid:</strong>
+      <%= episode.guid %>
+    </p>
+
+    <p>
+      <strong>Pub date:</strong>
+      <%= episode.pub_date %>
+    </p>
+
+    <p>
+      <strong>Explicit:</strong>
+      <%= episode.explicit %>
+    </p>
+
+    <p>
+      <strong>Keywords:</strong>
+      <%= episode.keywords %>
+    </p>
+
+    <%= link_to 'Edit', edit_podcast_episode_path(@podcast, episode), class: 'btn btn-primary' %>
+    <td><%= link_to 'Destroy', [@podcast, episode], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light' %></td>
+  </div>
+</div>

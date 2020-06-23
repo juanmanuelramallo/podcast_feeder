@@ -13,7 +13,7 @@ xml.rss('version' => '2.0',
     xml.language @podcast.language
 
     xml.itunes :author, @podcast.author
-    xml.itunes :image, polymorphic_url(@podcast.image) if @podcast.image.attached?
+    xml.itunes :image, href: polymorphic_url(@podcast.image) if @podcast.image.attached?
     xml.itunes :explicit, @podcast.explicit
     xml.itunes :category, text: @podcast.category
     xml.itunes :complete, @podcast.complete
@@ -21,5 +21,20 @@ xml.rss('version' => '2.0',
 
     xml.spotify :limit, recentCount: @podcast.limit
     xml.spotify :countryOfOrigin, @podcast.country_of_origin
+
+    @episodes.each do |episode|
+      xml.item do
+        xml.guid episode.guid, isPermaLink: false
+        xml.pubDate episode.pub_date
+        xml.title episode.title
+        xml.description episode.description
+        if episode.audio_file.attached?
+          xml.media :content, type: episode.audio_file.content_type, url: polymorphic_url(episode.audio_file)
+        end
+        xml.itunes :duration, episode.duration
+        xml.itunes :explicit, episode.explicit
+        xml.itunes :image, href: polymorphic_url(episode.image) if episode.image.attached?
+      end
+    end
   end
 end
