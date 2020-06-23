@@ -4,11 +4,6 @@ class EpisodesController < ApplicationController
   before_action :set_episode, only: %i[show edit update destroy]
   before_action :set_podcast
 
-  # GET /episodes
-  def index
-    @episodes = Episode.all
-  end
-
   # GET /episodes/1
   def show; end
 

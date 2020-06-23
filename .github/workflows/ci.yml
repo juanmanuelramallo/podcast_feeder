@@ -17,6 +17,7 @@ jobs:
       PGHOST: localhost
       PGUSER: postgres
       RAILS_ENV: test
+      CC_TEST_REPORTER_ID: a8bc2da507517d7d704d5a7990c1552f9350c5edf728b67e66707f23d1e8100f
       AWS_ACCESS_KEY_ID:
       AWS_SECRET_ACCESS_KEY:
       AWS_REGION:
@@ -47,8 +48,6 @@ jobs:
         curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
         chmod +x ./cc-test-reporter
         ./cc-test-reporter before-build
-      env:
-        CC_TEST_REPORTER_ID:
 
     - uses: actions/cache@v2
       with:
@@ -73,3 +72,7 @@ jobs:
 
     - name: Tests
       run: bundle exec rspec
+
+    - name: Report to CodeClimate
+      run: |
+        ./cc-test-reporter after-build --exit-code 0
