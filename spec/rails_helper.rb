@@ -71,6 +71,19 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
+
+  config.before(:each, type: :feature) do
+    username = ENV.fetch('HTTP_BASIC_AUTH_NAME')
+    password = ENV.fetch('HTTP_BASIC_AUTH_PASSWORD')
+
+    if page.driver.browser.respond_to?(:basic_authorize)
+      page.driver.browser.basic_authorize(username, password)
+    else
+      host = Capybara.current_session.server.host
+      port = Capybara.current_session.server.port
+      visit "http://#{username}:#{password}@#{host}:#{port}/"
+    end
+  end
 end
 
 Shoulda::Matchers.configure do |config|
