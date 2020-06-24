@@ -3,6 +3,7 @@
 FactoryBot.define do
   factory :podcast do
     author { Faker::Name.name }
+    email { Faker::Internet.email }
     category { Faker::Book.genre }
     channel_type { Podcast.channel_types.values.sample }
     complete { [false, true].sample }

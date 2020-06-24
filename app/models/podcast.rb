@@ -10,6 +10,7 @@
 #  channel_type     :integer          not null
 #  complete         :boolean          default(FALSE), not null
 #  description      :string           not null
+#  email            :string           default(""), not null
 #  explicit         :boolean          default(FALSE), not null
 #  language         :string           not null
 #  limit            :integer
@@ -19,7 +20,7 @@
 #  updated_at       :datetime         not null
 #
 class Podcast < ApplicationRecord
-  validates :author, :channel_type, :category, :description, :language, :target_countries,
+  validates :author, :channel_type, :category, :description, :email, :language, :target_countries,
             :title, presence: true
 
   enum channel_type: {

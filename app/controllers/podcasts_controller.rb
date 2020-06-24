@@ -63,6 +63,7 @@ class PodcastsController < ApplicationController
       :description,
       :language,
       :author,
+      :email,
       :explicit,
       :category,
       :complete,
