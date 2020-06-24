@@ -18,6 +18,7 @@ en:
         channel_type: "'episodic' for non-chronological episodes that will behave as they have for years and download the latest episode, or 'serial' for chronological episodes that should be consumed oldest to newest."
         complete: YES | NO A yes indicates a podcast that has ended and no further episodes will be published.
         description: Phrase or short description of the podcast intending to give the consumer a quick understanding of what the podcast is about
+        email: Email of the owner/author of the podcast
         explicit: Indicates if the podcast contains explicit material in any of its episodes. Allowed values are yes or clean. Clean indicates the podcast in its entirety is suitable to minors with or without edited material. Yes indicates that parental guidance is recommended to parts of the content.
         image: Indicates the podcast artwork. This image will be used as a fallback for any podcast episode not defining its own artwork.
         language: Indicates the primary show language using RSS 2.0 or W3C RFC 1766 language codes

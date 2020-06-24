@@ -21,6 +21,7 @@ RSpec.describe 'Podcasts' do
       <pubDate>#{episode.pub_date}</pubDate>
       <title>#{episode.title}</title>
       <description>#{episode.description}</description>
+      <enclosure url="#{polymorphic_url(episode.audio_file)}" type="#{episode.audio_file.content_type}" length="#{episode.audio_file.byte_size}"/>
       <media:content type="#{episode.audio_file.content_type}" url="#{polymorphic_url(episode.audio_file)}"/>
       <itunes:duration>#{episode.duration}</itunes:duration>
       <itunes:explicit>#{episode.explicit}</itunes:explicit>
@@ -36,7 +37,19 @@ RSpec.describe 'Podcasts' do
             <link>#{podcast_url(podcast.id)}</link>
             <description>#{podcast.description}</description>
             <language>#{podcast.language}</language>
+            <image>
+              <url>#{polymorphic_url(podcast.image)}</url>
+              <title>#{podcast.title}</title>
+              <link>#{podcast_url(podcast.id)}</link>
+            </image>
+            <generator>Podcast Feeder</generator>
+            <lastBuildDate>#{Time.zone.now.rfc2822}</lastBuildDate>
+            <author>#{podcast.author}</author>
             <itunes:author>#{podcast.author}</itunes:author>
+            <itunes:owner>
+              <itunes:name>#{podcast.author}</itunes:name>
+              <itunes:email>#{podcast.email}</itunes:email>
+            </itunes:owner>
             <itunes:image href="#{polymorphic_url(podcast.image)}"/>
             <itunes:explicit>#{podcast.explicit}</itunes:explicit>
             <itunes:category text="#{podcast.category}"/>

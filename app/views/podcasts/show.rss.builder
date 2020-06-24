@@ -11,8 +11,20 @@ xml.rss('version' => '2.0',
     xml.link podcast_url(@podcast.id)
     xml.description @podcast.description
     xml.language @podcast.language
+    xml.image do
+      xml.url polymorphic_url(@podcast.image) if @podcast.image.attached?
+      xml.title @podcast.title
+      xml.link podcast_url(@podcast.id)
+    end
+    xml.generator 'Podcast Feeder'
+    xml.lastBuildDate Time.zone.now.rfc2822
+    xml.author @podcast.author
 
     xml.itunes :author, @podcast.author
+    xml.itunes :owner do
+      xml.itunes :name, @podcast.author
+      xml.itunes :email, @podcast.email
+    end
     xml.itunes :image, href: polymorphic_url(@podcast.image) if @podcast.image.attached?
     xml.itunes :explicit, @podcast.explicit
     xml.itunes :category, text: @podcast.category
@@ -31,6 +43,8 @@ xml.rss('version' => '2.0',
         xml.title episode.title
         xml.description episode.description
         if episode.audio_file.attached?
+          xml.enclosure url: polymorphic_url(episode.audio_file), type: episode.audio_file.content_type,
+                        length: episode.audio_file.byte_size
           xml.media :content, type: episode.audio_file.content_type, url: polymorphic_url(episode.audio_file)
         end
         xml.itunes :duration, episode.duration
