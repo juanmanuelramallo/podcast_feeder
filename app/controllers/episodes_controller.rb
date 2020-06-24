@@ -20,6 +20,7 @@ class EpisodesController < ApplicationController
     @episode = Episode.new(episode_params.merge(guid: SecureRandom.uuid, podcast: @podcast))
 
     if @episode.save
+      @episode.audio_file.analyze
       redirect_to @podcast, notice: 'Episode was successfully created.'
     else
       render :new

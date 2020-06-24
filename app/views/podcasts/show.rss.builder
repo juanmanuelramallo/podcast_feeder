@@ -23,6 +23,8 @@ xml.rss('version' => '2.0',
     xml.spotify :countryOfOrigin, @podcast.country_of_origin
 
     @episodes.each do |episode|
+      next unless episode.duration.present?
+
       xml.item do
         xml.guid episode.guid, isPermaLink: false
         xml.pubDate episode.pub_date
