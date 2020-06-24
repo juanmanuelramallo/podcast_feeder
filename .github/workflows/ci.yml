@@ -22,6 +22,8 @@ jobs:
       AWS_SECRET_ACCESS_KEY:
       AWS_REGION:
       AWS_BUCKET:
+      HTTP_BASIC_AUTH_NAME: ron-burgundy
+      HTTP_BASIC_AUTH_PASSWORD: best-anchorman-ever
 
     services:
       postgres:
