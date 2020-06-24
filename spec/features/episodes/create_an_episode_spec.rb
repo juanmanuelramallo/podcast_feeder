@@ -24,5 +24,6 @@ RSpec.feature 'Create an episode' do
     click_button 'Create Episode'
 
     expect(page).to have_text('Episode was successfully created.')
+    expect(page).to have_text('27 seconds')
   end
 end

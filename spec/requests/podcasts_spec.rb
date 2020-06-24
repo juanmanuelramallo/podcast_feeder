@@ -9,6 +9,8 @@ RSpec.describe 'Podcasts' do
       episodes = EpisodePresenter.all(
         create_list(:episode, 5, podcast: podcast.object).sort_by(&:pub_date).reverse
       )
+      create(:episode, podcast: podcast.object) # Episode with audio file not analyzed is not shown
+      episodes.map(&:audio_file).each(&:analyze)
 
       get podcast_path(podcast, format: :rss)
       body = response.body

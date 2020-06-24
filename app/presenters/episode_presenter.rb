@@ -2,7 +2,7 @@
 
 class EpisodePresenter < ApplicationPresenter
   def duration
-    0 # TODO: Implement duration for audio files
+    audio_file.metadata[:duration]&.round
   end
 
   def explicit
