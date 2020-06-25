@@ -15,6 +15,8 @@ RSpec.feature 'Create a podcast' do
     fill_in 'Author', with: 'Someone'
     fill_in 'Email', with: 'someone@example.com'
     fill_in 'Category', with: 'Technology'
+    fill_in 'Subcategory', with: 'Podcasting'
+    fill_in 'Link', with: 'https://mypage.example.com'
     select 'episodic', from: 'Channel type'
     fill_in 'Target countries', with: 'uy ar'
     click_button 'Create Podcast'

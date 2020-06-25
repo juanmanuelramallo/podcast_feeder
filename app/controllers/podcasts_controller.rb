@@ -66,9 +66,10 @@ class PodcastsController < ApplicationController
       :email,
       :explicit,
       :category,
-      :complete,
       :channel_type,
       :limit,
+      :link,
+      :subcategory,
       :target_countries,
       :image
     )

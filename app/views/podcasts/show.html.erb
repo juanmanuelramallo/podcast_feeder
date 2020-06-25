@@ -17,6 +17,11 @@
     <% end %>
 
     <p>
+      <strong>Link:</strong>
+      <%= link_to @podcast.link, @podcast.link %>
+    </p>
+
+    <p>
       <strong>Language:</strong>
       <%= @podcast.language %>
     </p>
@@ -38,12 +43,7 @@
 
     <p>
       <strong>Category:</strong>
-      <%= @podcast.category %>
-    </p>
-
-    <p>
-      <strong>Complete:</strong>
-      <%= @podcast.complete %>
+      <%= @podcast.category %> - <%= @podcast.subcategory %>
     </p>
 
     <p>

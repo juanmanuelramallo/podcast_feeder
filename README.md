@@ -22,7 +22,6 @@ It includes support for iTunes' standard.
    1. image: Active Storage
    1. explicit: boolean (yes|clean)
    1. category: string
-   1. complete: boolean (yes|no)
    1. channel_type: string (episodic|serial)
 1. spotify:
    1. limit: integer *

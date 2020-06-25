@@ -31,20 +31,21 @@ RSpec.describe 'Podcasts' do
       end.join
 
       podcast_xml = <<~XML
-        <rss version="2.0" xmlns:media="https://search.yahoo.com/mrss/" xmlns:itunes="https://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:dcterms="https://purl.org/dc/terms/" xmlns:spotify="https://www.spotify.com/ns/rss" xmlns:psc="https://podlove.org/simple-chapters/">
+        <?xml version="1.0" encoding="UTF-8"?>
+        <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:spotify="http://www.spotify.com/ns/rss">
           <channel>
             <title>#{podcast.title}</title>
-            <link>#{podcast_url(podcast.id)}</link>
+            <link>#{podcast.link}</link>
+            <atom:link href="#{podcast_url(podcast, format: :rss)}" rel="self" type="application/rss+xml"/>
             <description>#{podcast.description}</description>
             <language>#{podcast.language}</language>
             <image>
               <url>#{polymorphic_url(podcast.image)}</url>
               <title>#{podcast.title}</title>
-              <link>#{podcast_url(podcast.id)}</link>
+              <link>#{podcast.link}</link>
             </image>
             <generator>Podcast Feeder</generator>
             <lastBuildDate>#{Time.zone.now.rfc2822}</lastBuildDate>
-            <author>#{podcast.author}</author>
             <itunes:author>#{podcast.author}</itunes:author>
             <itunes:owner>
               <itunes:name>#{podcast.author}</itunes:name>
@@ -52,8 +53,9 @@ RSpec.describe 'Podcasts' do
             </itunes:owner>
             <itunes:image href="#{polymorphic_url(podcast.image)}"/>
             <itunes:explicit>#{podcast.explicit}</itunes:explicit>
-            <itunes:category text="#{podcast.category}"/>
-            <itunes:complete>#{podcast.complete}</itunes:complete>
+            <itunes:category text="#{podcast.category}">
+              <itunes:category text="#{podcast.subcategory}"/>
+            </itunes:category>
             <itunes:type>#{podcast.channel_type}</itunes:type>
             <spotify:limit recentCount="#{podcast.limit}"/>
             <spotify:countryOfOrigin>#{podcast.country_of_origin}</spotify:countryOfOrigin>

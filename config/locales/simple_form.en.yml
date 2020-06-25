@@ -16,7 +16,6 @@ en:
         author: The full name of the show main originator, group or person
         category: 'Used to group the podcast into specific sets. May be nested with subcategories like: 1. Arts → 1.1 Design, 1.2 Fashion & Beauty, 1.3, Food 1.4 Literature etc. While not mandatory for the podcast ingest the categorization is needed for Spotify to perform recommendations.'
         channel_type: "'episodic' for non-chronological episodes that will behave as they have for years and download the latest episode, or 'serial' for chronological episodes that should be consumed oldest to newest."
-        complete: YES | NO A yes indicates a podcast that has ended and no further episodes will be published.
         description: Phrase or short description of the podcast intending to give the consumer a quick understanding of what the podcast is about
         email: Email of the owner/author of the podcast
         explicit: Indicates if the podcast contains explicit material in any of its episodes. Allowed values are yes or clean. Clean indicates the podcast in its entirety is suitable to minors with or without edited material. Yes indicates that parental guidance is recommended to parts of the content.

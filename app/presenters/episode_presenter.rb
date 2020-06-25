@@ -6,7 +6,7 @@ class EpisodePresenter < ApplicationPresenter
   end
 
   def explicit
-    object.explicit? ? 'yes' : 'clean'
+    object.explicit? ? 'Yes' : 'No'
   end
 
   def pub_date

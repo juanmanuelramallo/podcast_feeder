@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
 class PodcastPresenter < ApplicationPresenter
-  def complete
-    object.complete? ? 'yes' : 'no'
-  end
-
   def explicit
-    object.explicit? ? 'yes' : 'clean'
+    object.explicit? ? 'Yes' : 'No'
   end
 
   def country_of_origin

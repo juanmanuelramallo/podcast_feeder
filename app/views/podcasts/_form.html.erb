@@ -6,12 +6,13 @@
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :image %>
+    <%= f.input :link %>
     <%= f.input :language %>
     <%= f.input :author %>
     <%= f.input :email %>
     <%= f.input :explicit %>
     <%= f.input :category %>
-    <%= f.input :complete %>
+    <%= f.input :subcategory %>
     <%= f.input :channel_type, collection: Podcast.channel_types.keys %>
     <%= f.input :limit %>
     <%= f.input :target_countries %>
