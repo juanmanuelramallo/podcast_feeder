@@ -44,8 +44,6 @@ xml.rss('version' => '2.0',
         xml.title episode.title
         xml.description episode.description
         if episode.audio_file.attached?
-          xml.enclosure url: polymorphic_url(episode.audio_file), type: episode.audio_file.content_type,
-                        length: episode.audio_file.byte_size
           xml.media :content, type: episode.audio_file.content_type, url: polymorphic_url(episode.audio_file)
         end
         xml.itunes :duration, episode.duration
