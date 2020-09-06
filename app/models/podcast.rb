@@ -8,7 +8,7 @@
 #  author           :string           not null
 #  category         :string           not null
 #  channel_type     :integer          not null
-#  description      :string           not null
+#  description      :text             not null
 #  email            :string           default(""), not null
 #  explicit         :boolean          default(FALSE), not null
 #  language         :string           not null
