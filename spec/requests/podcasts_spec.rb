@@ -31,7 +31,7 @@ RSpec.describe 'Podcasts' do
 
       podcast_xml = <<~XML
         <?xml version="1.0" encoding="UTF-8"?>
-        <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:spotify="http://www.spotify.com/ns/rss">
+        <rss xmlns:atom="https://www.w3.org/2005/Atom" xmlns:media="https://search.yahoo.com/mrss/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:dcterms="https://purl.org/dc/terms/" xmlns:spotify="https://www.spotify.com/ns/rss" version="2.0">
           <channel>
             <title>#{podcast.title}</title>
             <link>#{podcast.link}</link>
