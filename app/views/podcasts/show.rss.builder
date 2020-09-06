@@ -1,12 +1,16 @@
 # frozen_string_literal: true
 
 xml.instruct!
-xml.rss('version' => '2.0',
-        'xmlns:atom' => 'http://www.w3.org/2005/Atom',
-        'xmlns:media' => 'http://search.yahoo.com/mrss/',
-        'xmlns:itunes' => 'http://www.itunes.com/dtds/podcast-1.0.dtd',
-        'xmlns:dcterms' => 'http://purl.org/dc/terms/',
-        'xmlns:spotify' => 'http://www.spotify.com/ns/rss') do
+xml.rss(
+  'xmlns:atom' => 'https://www.w3.org/2005/Atom',
+  'xmlns:media' => 'https://search.yahoo.com/mrss/',
+  # Itunes specification must be http.
+  # Spotify requires the rest of the modules to be https
+  'xmlns:itunes' => 'http://www.itunes.com/dtds/podcast-1.0.dtd',
+  'xmlns:dcterms' => 'https://purl.org/dc/terms/',
+  'xmlns:spotify' => 'https://www.spotify.com/ns/rss',
+  'version' => '2.0'
+) do
   xml.channel do
     xml.title @podcast.title
     xml.link @podcast.link
