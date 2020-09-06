@@ -47,8 +47,7 @@ jobs:
 
     - name: Install ffmpeg
       run: |
-        sudo apt-get update
-        sudo apt-get install ffmpeg
+        sudo apt-get -yqq install ffmpeg
 
     - name: CodeClimate reporter
       run: |

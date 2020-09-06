@@ -21,6 +21,7 @@ RSpec.describe 'Podcasts' do
       <pubDate>#{episode.pub_date}</pubDate>
       <title>#{episode.title}</title>
       <description>#{episode.description}</description>
+      <enclosure url="#{polymorphic_url(episode.audio_file)}" type="#{episode.audio_file.content_type}" length="#{episode.audio_file.byte_size}"/>
       <media:content type="#{episode.audio_file.content_type}" url="#{polymorphic_url(episode.audio_file)}"/>
       <itunes:duration>#{episode.duration}</itunes:duration>
       <itunes:explicit>#{episode.explicit}</itunes:explicit>
