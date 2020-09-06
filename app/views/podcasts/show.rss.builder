@@ -16,6 +16,7 @@ xml.rss(
     xml.link @podcast.link
     xml.atom :link, href: podcast_url(@podcast, format: :rss), rel: 'self', type: 'application/rss+xml'
     xml.description @podcast.description
+    xml.itunes :summary, @podcast.description
     xml.language @podcast.language
     xml.image do
       xml.url polymorphic_url(@podcast.image) if @podcast.image.attached?

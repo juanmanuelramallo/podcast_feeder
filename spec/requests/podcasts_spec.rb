@@ -37,6 +37,7 @@ RSpec.describe 'Podcasts' do
             <link>#{podcast.link}</link>
             <atom:link href="#{podcast_url(podcast, format: :rss)}" rel="self" type="application/rss+xml"/>
             <description>#{podcast.description}</description>
+            <itunes:summary>#{podcast.description}</itunes:summary>
             <language>#{podcast.language}</language>
             <image>
               <url>#{polymorphic_url(podcast.image)}</url>
