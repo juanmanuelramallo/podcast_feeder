@@ -6,6 +6,13 @@
 
 A CMS for Podcast episodes that renders an RSS feed.
 
+# Development
+
+## HTTP Tunneling
+First install [npm install -g localtunnel](https://github.com/localtunnel/localtunnel) in your system.
+
+Run `lt --port 3000 --subdomain your-preferred-subdomain` and set the output host to the `LOCAL_TUNNEL_HOST` environment variable. Your local environemnt will now be accesible everywhere through HTTP tunneling thanks to [localtunnel](https://github.com/localtunnel/localtunnel).
+
 # Modeling
 
 In order to match the standards used by most platforms we follow [Spotify's delivery specification v1.6](https://podcasters.spotify.com/terms/Spotify_Podcast_Delivery_Specification_v1.6.pdf).

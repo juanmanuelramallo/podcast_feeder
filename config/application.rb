@@ -33,5 +33,9 @@ module PodcastFeeder
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Use the lowest log level to ensure availability of diagnostic information
+    # when problems arise.
+    config.log_level = ENV.fetch('RAILS_LOG_LEVEL', 'debug').to_sym
   end
 end
