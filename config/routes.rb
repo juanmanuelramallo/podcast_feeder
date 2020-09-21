@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     resources :episodes, except: [:index]
   end
 
+  resource :log_webhook, only: :create
+
   root 'podcasts#index'
 end

@@ -13,6 +13,14 @@ First install [npm install -g localtunnel](https://github.com/localtunnel/localt
 
 Run `lt --port 3000 --subdomain your-preferred-subdomain` and set the output host to the `LOCAL_TUNNEL_HOST` environment variable. Your local environemnt will now be accesible everywhere through HTTP tunneling thanks to [localtunnel](https://github.com/localtunnel/localtunnel).
 
+# Analytics
+
+_Work in progress._
+
+The main idea is to write event information into logs. Save them (using an external service - Papertrail) into an S3 bucket hourly. Make S3 trigger a webhook to the app. The app then enqueues a background job to run an ETL task. Lastly the data is displayed in a dashboard.
+
+- [Log webhook](docs/log-webhook.md)
+
 # Modeling
 
 In order to match the standards used by most platforms we follow [Spotify's delivery specification v1.6](https://podcasters.spotify.com/terms/Spotify_Podcast_Delivery_Specification_v1.6.pdf).
@@ -33,12 +41,6 @@ It includes support for iTunes' standard.
 1. spotify:
    1. limit: integer *
    1. countryoforigin: array of string (ISO3166[])
-
-<sub>
-* optional <br>
-** not in database
-</sub>
-
 
 ### Episodes
 
