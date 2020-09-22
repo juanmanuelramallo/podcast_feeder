@@ -12,19 +12,17 @@ module ETL
     end
 
     def call
-      response = client.get_object(bucket: bucket_name, key: object_key)
-
-      File.open(filename, 'w+') do |f|
-        f.puts response.body.read
-      end
+      object = resource.bucket(bucket_name).object(object_key)
+      object.get(response_target: filename)
+      `gzip -d #{filename}` if Dir[filename].empty?
 
       filename
     end
 
     private
 
-    def client
-      @_client ||= ::Aws::S3::Client.new
+    def resource
+      @_resource ||= ::Aws::S3::Resource.new
     end
 
     def filename

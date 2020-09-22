@@ -3,6 +3,8 @@
 module Analytics
   extend ActiveSupport::Concern
 
+  BASE_LOG_LINE = 'podcastfeeder-analytics'
+
   included do
     after_action :log
   end
@@ -20,6 +22,6 @@ module Analytics
   end
 
   def log
-    logger.info { "podcastfeeder-analytics=#{data}" }
+    logger.info { "#{BASE_LOG_LINE}=#{data}" }
   end
 end

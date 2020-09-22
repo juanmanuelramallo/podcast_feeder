@@ -1,26 +1,36 @@
 # frozen_string_literal: true
 
+require 'kiba'
+require 'etl/sources/csv'
+require 'etl/download_logs'
+require 'etl/transforms/filter_analytics'
+
 module ETL
   module Task
     module_function
 
     def setup(object_key:, bucket_name:)
+      filename = "tmp/#{object_key.gsub('/', '-')}".sub('.gz', '')
+
       Kiba.parse do
         pre_process do
-          @filename = DownloadLogs.new(object_key: object_key, bucket_name: bucket_name).call
+          ::ETL::DownloadLogs.new(object_key: object_key, bucket_name: bucket_name).call
         end
 
-        source TSVSource
+        source ::ETL::Sources::CSV, filename: filename, csv_options: { col_sep: "\t", quote_char: "'" }
 
-        transform ExtractValuesTransform
-        transform UserAgenTransform
-        transform GeoIpTransform
+        transform ETL::Transforms::FilterAnalytics
 
-        destination DatabaseDestination
+        # TODO:
+        # transform ExtractValuesTransform
+        # transform UserAgenTransform
+        # transform GeoIpTransform
 
-        post_process do
-          File.delete(@filename)
-        end
+        # destination DatabaseDestination
+
+        # post_process do
+        #   File.delete(@filename)
+        # end
       end
     end
   end
