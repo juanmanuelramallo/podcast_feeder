@@ -18,10 +18,10 @@ module Analytics
       ip: request.remote_ip,
       user_agent: request.user_agent,
       method: request.method
-    }.to_json
+    }
   end
 
   def log
-    logger.unknown { "podcastfeeder-analytics=#{data}" }
+    logger.unknown { "podcastfeeder-analytics=#{data.to_json}" }
   end
 end
