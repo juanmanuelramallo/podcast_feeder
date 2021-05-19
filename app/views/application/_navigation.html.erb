@@ -1,5 +1,7 @@
 <nav class="container py-2">
   <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-    <%= link_to "Go back", :back %>
+    <% unless request.path == root_path %>
+      <%= link_to "Go back", :back %>
+    <% end %>
   </div>
 </nav>

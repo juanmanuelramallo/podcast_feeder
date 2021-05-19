@@ -11,15 +11,17 @@ module Analytics
 
   def data
     {
-      action_name: action_name,
-      controller_name: controller_name,
+      path: request.path,
+      query_string: request.query_string,
+      referrer: request.referrer,
       format: request.format.to_s,
       ip: request.remote_ip,
-      user_agent: request.user_agent
+      user_agent: request.user_agent,
+      method: request.method
     }.to_json
   end
 
   def log
-    logger.info { "podcastfeeder-analytics=#{data}" }
+    logger.unknown { "podcastfeeder-analytics=#{data}" }
   end
 end
