@@ -12,6 +12,7 @@ document.addEventListener("turbolinks:load", function() {
       let audioElem = document.createElement('audio');
       audioElem.controls = true;
       audioElem.src = e.target.dataset.audioSrc;
+      audioElem.classList.add('w-full');
 
       e.target.insertAdjacentElement('afterend', audioElem);
     });
