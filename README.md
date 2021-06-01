@@ -15,11 +15,9 @@ Run `lt --port 3000 --subdomain your-preferred-subdomain` and set the output hos
 
 # Analytics
 
-_Work in progress._
+Pertinent information from the request is logged with `Rails.logger` via the `Analytics` concern.
 
-The main idea is to write event information into logs. Save them (using an external service - Papertrail) into an S3 bucket hourly. Make S3 trigger a webhook to the app. The app then enqueues a background job to run an ETL task. Lastly the data is displayed in a dashboard.
-
-- [Log webhook](docs/log-webhook.md)
+This is expected to be [consumed by a log analyzer](https://github.com/juanmanuelramallo/applogger).
 
 # Modeling
 
