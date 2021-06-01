@@ -22,6 +22,7 @@ en:
         image: Indicates the podcast artwork. This image will be used as a fallback for any podcast episode not defining its own artwork.
         language: Indicates the primary show language using RSS 2.0 or W3C RFC 1766 language codes
         limit: If specified at most this number of episodes appear in the client, using the most recent episodes.
+        slug: To be used as a friendly URL path. Leave empty if you want to use the root path as the landing path.
         target_countries: Defines the intended market/territory where the podcast is relevant to the consumer. This is defined as a space separated list of ISO 3166 country codes ranked in order of priority from most relevant to least relevant. Podcasts with a narrow list of countries will have a higher potential reaching their it’s target audiences compared to podcasts with wide definitions. Podcasts omitting this element entirely will be defined as ’global’ and not having a target market/territory.
         title: The name by which the podcast is known
     'no': 'No'

@@ -14,6 +14,7 @@
 #  language         :string           not null
 #  limit            :integer
 #  link             :string
+#  slug             :string           default(""), not null
 #  subcategory      :string
 #  target_countries :string           is an Array
 #  title            :string           not null

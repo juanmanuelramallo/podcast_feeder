@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_185408) do
+ActiveRecord::Schema.define(version: 2021_06_01_145524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2020_09_06_185408) do
     t.string "email", default: "", null: false
     t.string "link"
     t.string "subcategory"
+    t.string "slug", default: "", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
