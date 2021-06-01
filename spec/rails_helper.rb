@@ -81,7 +81,7 @@ RSpec.configure do |config|
     else
       host = Capybara.current_session.server.host
       port = Capybara.current_session.server.port
-      visit "http://#{username}:#{password}@#{host}:#{port}/"
+      visit "http://#{username}:#{password}@#{host}:#{port}/podcasts"
     end
   end
 

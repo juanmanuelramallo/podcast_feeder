@@ -21,9 +21,14 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
+# Indexes
+#
+#  index_podcasts_on_slug  (slug) UNIQUE
+#
 class Podcast < ApplicationRecord
   validates :author, :channel_type, :category, :description, :email, :language, :target_countries,
             :title, :link, presence: true
+  validates :slug, uniqueness: true
 
   enum channel_type: {
     episodic: 0,

@@ -12,6 +12,7 @@ FactoryBot.define do
     language { %w[en es].sample }
     limit { [nil, -> { rand(0..10) }].sample&.call }
     link { Faker::Internet.domain_name }
+    slug { Faker::Internet.slug }
     target_countries { [['uy'], %w[ar uy], %w[ar bo uy]].sample }
     title { Faker::Book.title }
 
