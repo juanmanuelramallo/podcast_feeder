@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_195257) do
+ActiveRecord::Schema.define(version: 2021_06_02_163833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -66,6 +66,9 @@ ActiveRecord::Schema.define(version: 2021_06_01_195257) do
     t.string "link"
     t.string "subcategory"
     t.string "slug", default: "", null: false
+    t.string "apple_podcasts_url", default: "", null: false
+    t.string "google_podcasts_url", default: "", null: false
+    t.string "spotify_url", default: "", null: false
     t.index ["slug"], name: "index_podcasts_on_slug", unique: true
   end
 

@@ -61,6 +61,21 @@
       <%= @podcast.target_countries.join(', ') %>
     </p>
 
+    <p>
+      <strong>Apple Podcasts:</strong>
+      <%= link_to @podcast.apple_podcasts_url, @podcast.apple_podcasts_url, target: :_blank %>
+    </p>
+
+    <p>
+      <strong>Google Podcasts</strong>
+      <%= link_to @podcast.google_podcasts_url, @podcast.google_podcasts_url, target: :_blank %>
+    </p>
+
+    <p>
+      <strong>Spotify</strong>
+      <%= link_to @podcast.spotify_url, @podcast.spotify_url, target: :_blank %>
+    </p>
+
     <%= link_to 'Edit podcast', edit_podcast_path(@podcast), class: 'btn btn-primary' %>
   </div>
 

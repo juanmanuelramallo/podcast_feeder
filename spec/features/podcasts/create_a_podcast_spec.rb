@@ -19,6 +19,9 @@ RSpec.feature 'Create a podcast' do
     fill_in 'Link', with: 'https://mypage.example.com'
     select 'episodic', from: 'Channel type'
     fill_in 'Target countries', with: 'uy ar'
+    fill_in 'Apple Podcasts Url', with: 'https://example.com/apple'
+    fill_in 'Google Podcasts Url', with: 'https://example.com/google'
+    fill_in 'Spotify Url', with: 'https://example.com/spotify'
     click_button 'Create Podcast'
 
     expect(page).to have_text('Podcast was successfully created.')

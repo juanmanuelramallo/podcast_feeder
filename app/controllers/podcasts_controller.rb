@@ -71,7 +71,10 @@ class PodcastsController < ApplicationController
       :link,
       :subcategory,
       :target_countries,
-      :image
+      :image,
+      :apple_podcasts_url,
+      :google_podcasts_url,
+      :spotify_url
     )
   end
 

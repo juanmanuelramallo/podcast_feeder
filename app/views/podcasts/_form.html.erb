@@ -17,6 +17,10 @@
     <%= f.input :channel_type, collection: Podcast.channel_types.keys %>
     <%= f.input :limit %>
     <%= f.input :target_countries %>
+
+    <%= f.input :spotify_url %>
+    <%= f.input :apple_podcasts_url %>
+    <%= f.input :google_podcasts_url %>
   </div>
 
   <div class="form-actions">
