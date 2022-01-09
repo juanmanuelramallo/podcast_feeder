@@ -67,6 +67,9 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-yarn-
 
+    - name: Yarn
+      run: yarn install
+
     - name: Build App
       run: |
         bin/rails db:setup
