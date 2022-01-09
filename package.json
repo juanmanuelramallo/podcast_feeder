@@ -20,5 +20,8 @@
   },
   "resolutions": {
     "**/node-gyp": "^7.0.0"
+  },
+  "engines": {
+    "node": "12.22.5"
   }
 }
