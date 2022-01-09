@@ -1,4 +1,4 @@
-# Podcast Feeder
+# PodcastFeeder
 
 [![CI](https://github.com/juanmanuelramallo/podcast_feeder/workflows/CI/badge.svg)](https://github.com/juanmanuelramallo/podcast_feeder/actions?query=workflow%3ACI)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d2bfe7160d35a46dcbed/maintainability)](https://codeclimate.com/github/juanmanuelramallo/podcast_feeder/maintainability)
