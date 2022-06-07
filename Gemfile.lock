@@ -126,7 +126,7 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
-    jmespath (1.4.0)
+    jmespath (1.6.1)
     json (2.6.1)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
